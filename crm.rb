@@ -4,8 +4,11 @@
 
 require 'sinatra'
 require_relative 'contact'
+
+Contact.create('Johnny', 'Bravo', 'johnny@bitmakerlabs.com', 'Rockstar')
+
 get '/contacts' do
-  
+
   erb :contacts
 end
 
@@ -21,4 +24,9 @@ end
 
 post '/contacts' do
   puts params
+end
+
+get '/contacts/1' do
+  @contact = Contact.find(1)
+  erb :show_contact
 end
