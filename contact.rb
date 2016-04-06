@@ -4,11 +4,15 @@
 #   ruby test/contact_test.rb
 #
 # If your implementation of the Contact class is 'right', then you should see that all tests pass!
+require 'active_record'
+require 'mini_record'
+
+ActiveRecord::Base.establish_connection(adapter: 'sqlite3', database: 'crm-web.sqlite3')
+
 class Contact
 
   # Add any attr_reader and attr_accessors here
-attr_reader :id
-attr_accessor :first_name, :last_name, :email, :note
+
   # Add any class variables here
 @@contacts = []
 @@id = 1
